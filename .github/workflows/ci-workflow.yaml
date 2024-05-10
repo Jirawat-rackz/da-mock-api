@@ -39,7 +39,7 @@ jobs:
       - name: Set Image Name
         id: set_image_name
         run: |
-          echo "IMAGE_NAME=asia.gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ env.COMMIT_VERSION }}" >> $GITHUB_ENV
+          echo "IMAGE_NAME=asia-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ env.COMMIT_VERSION }}" >> $GITHUB_ENV
       
       - name: Build Image
         run: |
