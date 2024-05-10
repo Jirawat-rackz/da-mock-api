@@ -16,6 +16,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - id: 'auth'
         uses: 'google-github-actions/auth@v2'
         with:
@@ -29,9 +32,6 @@ jobs:
 
       - name: Configure Docker
         run: gcloud auth configure-docker asia.gcr.io
-
-      - name: Checkout repository
-        uses: actions/checkout@v4
 
       - name: Get Tag Image and Set Environment
         id: set_env

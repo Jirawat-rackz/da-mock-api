@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/jirawat-rackz/da-mock-api/data/dadata"
 	"github.com/jirawat-rackz/da-mock-api/handler/dahandler"
@@ -11,6 +12,13 @@ import (
 
 func main() {
 	r := httpserve.New("8080")
+
+	r.Use(
+		gin.Recovery(),
+		cors.New(cors.Config{
+			AllowOrigins: []string{"*"},
+		}),
+	)
 
 	v1 := r.Group("/api/v1")
 
