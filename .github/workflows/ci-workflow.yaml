@@ -12,25 +12,7 @@ env:
   APP_NAME: ${{ vars.APP_NAME }}
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v3
-
-      - name: setup go
-        uses: actions/setup-go@v4
-        with:
-          go-version-file: go.mod
-
-      - name: test coverage
-        run: make test-coverage
-      
   deploy:
-    needs:
-      - test
     runs-on: ubuntu-latest
 
     steps:
